@@ -1,12 +1,9 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine'
-            args '-p 3000:3000'
+            image 'node:latest'
+            args '-p 9191:3000'
         }
-    }
-    environment {
-        CI = 'true'
     }
     stages {
         stage('Build') {
@@ -16,9 +13,9 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh './deliver.sh'
+                sh './jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './kill.sh'
+                sh './jenkins/scripts/kill.sh'
             }
         }
     }
