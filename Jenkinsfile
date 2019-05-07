@@ -11,9 +11,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                nput message: 'Start install app ? (Click "Proceed" to continue)'
+                input message: 'Start install app ? (Click "Proceed" to continue)'
                 sh 'npm install'
-                nput message: 'Finish install app ? (Click "Proceed" to continue)'
+                input message: 'Finish install app ? (Click "Proceed" to continue)'
             }
         }
         stage('Deliver') {
