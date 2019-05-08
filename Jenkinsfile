@@ -8,8 +8,6 @@ pipeline {
     environment {
         UN_SECRET = credentials('mysecret')
         CI = 'true'
-        STARWARS_DB_CREDS = credentials('DB_STARWARS_CREDENTIAL')
-        PRIVATE_KEY_TOKEN = credentials('STARWARS_PRIVATE_KEY_TOKEN')
 
         
         PORT=4000
