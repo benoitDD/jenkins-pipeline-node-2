@@ -31,7 +31,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                try{
+                    sh 'npm test'
+                }catch(Exception e){
+                    input message: 'Test is in failure, continue ? (Click "Proceed" to continue)'
+                }
             }
         }
         stage('Deliver') {
