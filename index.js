@@ -7,5 +7,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`App on mode ${process.env.CI} ready on port ${PORT}`)
+    console.log(`App on mode CI: ${process.env.CI}, with secret: ${process.env.UN_SECRET} ready on port ${PORT}`)
 })

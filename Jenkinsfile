@@ -6,8 +6,11 @@ pipeline {
         }
     }
     environment {
-        CI = 'true'
-    }
+        withCredentials([string(credentialsId: 'mysecret', variable: 'USERPASS')]) {
+            CI = 'true'
+            UN_SECRET = $USERPASS
+        }
+    } 
     stages {
         stage('Build') {
             steps {
