@@ -8,6 +8,19 @@ pipeline {
     environment {
         UN_SECRET = credentials('mysecret')
         CI = 'true'
+        STARWARS_DB_CREDS = credentials('DB_STARWARS_CREDENTIAL')
+        PRIVATE_KEY_TOKEN = credentials('STARWARS_PRIVATE_KEY_TOKEN')
+
+        DB_LOGIN = $STARWARS_DB_CREDS_USR
+        DB_PASSWORD = $STARWARS_DB_CREDS_USR_PSW
+        PORT=4000
+        NODE_ENV=development
+        NPM_CONFIG_PRODUCTION=false
+        DIRECTORY_IMAGE=server'/public/images/'
+        DIRECTORY_IMAGE_EXT='/images/'
+        DIRECTORY_LOCALES_I18N='/public/locales/{{lng}}/{{ns}}.json'
+        CORS_ORIGIN='http://localhost:5000'
+        SWAPI_URL='https://vast-thicket-17621.herokuapp.com'
     } 
     stages {
         stage('Build') {
