@@ -8,6 +8,17 @@ pipeline {
     environment {
         UN_SECRET = credentials('mysecret')
         CI = 'true'
+        STARWARS_DB_CREDS = credentials('DB_STARWARS_CREDENTIAL')
+        PRIVATE_KEY_TOKEN = credentials('STARWARS_PRIVATE_KEY_TOKEN')
+
+        DB_LOGIN = '$STARWARS_DB_CREDS_USR'
+        DB_PASSWORD = '$STARWARS_DB_CREDS_PSW'
+        PORT=4000
+        NODE_ENV='development'
+        NPM_CONFIG_PRODUCTION=false
+        DIRECTORY_IMAGE=server'/public/images/'
+        DIRECTORY_IMAGE_EXT='/images/'
+        DIRECTORY_LOCALES_I18N='/public/locales/{{lng}}/{{ns}}.json'
     } 
     stages {
         stage('Build') {
