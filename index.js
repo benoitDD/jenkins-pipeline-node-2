@@ -3,7 +3,7 @@ const app = require('express')()
 const PORT = 3000
 
 app.get('/', (req, res) => {
-    res.send(`Hello :~) and CI: ${process.env.CI}`)
+    res.send(`Hello :~) and CI: ${process.env.CI}, with secret: ${process.env.UN_SECRET}`)
 })
 
 app.listen(PORT, () => {
