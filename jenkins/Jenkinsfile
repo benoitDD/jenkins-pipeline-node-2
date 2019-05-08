@@ -36,6 +36,7 @@ pipeline {
                         sh 'npm test'
                     }catch(Exception e){
                         input message: 'Test is in failure, continue ? (Click "Proceed" to continue)'
+                        currentBuild.result = 'UNSTABLE'
                     }
                 }
             }
