@@ -12,7 +12,7 @@ pipeline {
         PRIVATE_KEY_TOKEN = credentials('STARWARS_PRIVATE_KEY_TOKEN')
 
         DB_LOGIN = '$STARWARS_DB_CREDS_USR'
-        DB_PASSWORD = '$STARWARS_DB_CREDS_USR_PSW'
+        DB_PASSWORD = '$STARWARS_DB_CREDS_PSW'
         PORT=4000
         NODE_ENV='development'
         NPM_CONFIG_PRODUCTION=false
