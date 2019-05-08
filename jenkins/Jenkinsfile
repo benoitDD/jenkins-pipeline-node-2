@@ -29,6 +29,11 @@ pipeline {
                 sh 'echo toto > rere.txt'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
         stage('Deliver') {
             steps {
                 sh 'cat rere.txt'
